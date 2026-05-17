@@ -123,13 +123,18 @@
         return;
       }
 
-/*
-1) Get the Order button from the webpage.
-   a) Store it in the `btn` variable.
-   b) Disable the button while the order is being processed.
-
-2) Hide the result box before starting the order updates.
-*/
+let btn = document.getElementBYId("order-btn");
+btn.disabled = true;
+document.getElementById("result").style.display = "none";
+document.getElementById("status").textContent = "ORDER RECIEVED";
+await delay(1000);
+document.getElementById("status").textContent = " KITCHEN IS PREPARING THE " + food + "...";
+await delay(3000);
+document.getElementById("status").textContent = "OUT FOR DELIVERY";
+await delay(1500);
+document.getElementById("status").textContent = "";
+document.getElementById("result-msg").textContent = " your" + food + "is here";
+document.getElementById("result").style.display = "block";
 
 document.getElementById("status").textContent = "📋 Order received!";
 
